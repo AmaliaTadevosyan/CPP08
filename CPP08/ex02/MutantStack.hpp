@@ -5,10 +5,10 @@
 #include <iterator>
 
 template <typename T>
-class MutantStack : public std:stack<T>
+class MutantStack : public std::stack<T>
 {
     public:
-        typedef typename std::stack<T>::container_type::iterator iter;
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
         MutantStack() {};
         MutantStack(const MutantStack& obj) : std::stack<T>(obj){};
@@ -27,4 +27,4 @@ class MutantStack : public std:stack<T>
         {
             return (this->c.end());
         }
-}
+};

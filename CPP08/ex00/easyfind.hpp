@@ -3,15 +3,15 @@
 #include <algorithm>
 
 template <typename T>
-typename T::iterator easyfind(T& conainer, int value)
+typename T::iterator easyfind(T& container, int value)
 {
-    typename T::itrator it = std::find(conainer.begin(), conainer.end(), value);
-    if (it != conainer.end())
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    if (it != container.end())
     {
         return it;
     }
     else
     {
-        std::cout << "Value not found" << std::endl; 
+        throw std::out_of_range("Value not found!");
     }
 }

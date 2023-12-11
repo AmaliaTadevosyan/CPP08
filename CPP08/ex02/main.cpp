@@ -2,14 +2,27 @@
 
 int main()
 {
-    MutantStack<int> mutant;
-
-    for (int i = 0; i < 5; i++)
-        mutant.push(i);
-
-    for (MutantStack<int> it = mutant.begin(); it != mutant.end(); ++it)
+   MutantStack<int> mstack;
+    mstack.push(50);
+    mstack.push(17);
+    std::cout << "top: "<< mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << "size: "<< mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
         std::cout << *it << " ";
-    std::cout << std::endl;
-    return (0);  
+        ++it;
+    }
+    std::stack<int> s(mstack);
+    return 0;
 }
 

@@ -34,8 +34,8 @@ void Span::addNumber(int num)
 
 int Span::shortestSpan()
 {
-    if (_nums.sixe() > 2)
-        throw std::logic_error("Not enough elements!")
+    if (_nums.size() < 2)
+        throw std::logic_error("Not enough elements!");
     std::vector<int> sortedNums = _nums;
     std::sort(sortedNums.begin(), sortedNums.end());
 
@@ -52,8 +52,9 @@ int Span::longestSpan()
 {
     if (_nums.size() < 2)
         throw std::logic_error("Not enough elements!");
-    int result = std::minmax_element(_nums.begin(), _nums.end());
-    return (*result.second - *result.first);
+    int result = *std::max_element(this->_nums.begin(), this->_nums.end()) - 
+        *std::min_element(this->_nums.begin(), this->_nums.end());
+    return (result);
 }
 
 
