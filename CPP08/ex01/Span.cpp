@@ -57,7 +57,16 @@ int Span::longestSpan()
     return (result);
 }
 
+template <typename InputIt>
+void    Span::addRange(InputIt first, InputIt last)
+{
+    size_t newSize = _nums.size() + std::distance(first, last);
 
+    if (newSize > _maxSize)
+        throw std::overflow_error("Maximum reached!");
+
+    _nums.insert(_nums.end(), first, last);
+}
 
 
 
